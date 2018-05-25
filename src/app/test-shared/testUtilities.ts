@@ -15,4 +15,9 @@ export class TestUtilities {
     {
         this.Verify(nativeElement, `#${id}`, (nodes) => nodes.length == 1);
     }
+
+    public static VerifyDirective(nativeElement: any, name: string)
+    {
+        this.Verify(nativeElement, name, (nodes) => nodes.length == 1);
+    }
 }

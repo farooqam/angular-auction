@@ -54,19 +54,19 @@ describe('AppComponent', () => {
     });
 
     it('should render navbar component', async(() => {
-      TestUtilities.Verify(nativeElement, '.navbar', (nodes) => nodes.length == 1);
+      TestUtilities.VerifyDirective(nativeElement, 'tq-navbar');
     }));
 
     it('should render search component', async(() => {
-      TestUtilities.Verify(nativeElement, 'tq-search', (nodes) => nodes.length == 1); 
+      TestUtilities.VerifyDirective(nativeElement, 'tq-search');
     }));
   
     it('should render router outlet component', async(() => {
-      TestUtilities.Verify(nativeElement, 'router-outlet', (nodes) => nodes.length == 1);
+      TestUtilities.VerifyDirective(nativeElement, 'router-outlet');
     }));
   
     it('should render footer component', async(() => {
-      TestUtilities.Verify(nativeElement, 'tq-footer', (nodes) => nodes.length == 1); 
+      TestUtilities.VerifyDirective(nativeElement, 'tq-footer');
     }));
   
   });

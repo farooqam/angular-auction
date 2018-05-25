@@ -49,58 +49,27 @@ describe('NavbarComponent', () => {
     });
 
     it('navbar should render', async() => {
-      TestUtilities.Verify(nativeElement, ".navbar", (result) => result != null);
+      TestUtilities.VerifyElementById(nativeElement, "navbar");
     });
 
-    it('navbar brand should render', async() => {
-      
-      TestUtilities.Verify(nativeElement, ".navbar-brand", (nodes) => {
-
-        var brandLinks = Array.prototype.filter.call(nodes, (item) => {
-          return item.textContent.includes('TQ Auction');
-        }).length;
-
-        return (brandLinks == 1);
-      });
+    it('Home link should render', async() => {
+      TestUtilities.VerifyElementById(nativeElement, "homeLink");
     });
 
-    it('navbar links should render', async() => {
-      
-      TestUtilities.Verify(nativeElement, ".nav-link", (nodes) => {
-
-        var homeLinks = Array.prototype.filter.call(nodes, (item) => {
-          return item.textContent.includes('Home');
-        }).length;
-
-        var aboutLinks = Array.prototype.filter.call(nodes, (item) => {
-          return item.textContent.includes('About');
-        }).length;
-
-        var servicesLinks = Array.prototype.filter.call(nodes, (item) => {
-          return item.textContent.includes('Services');
-        }).length;
-
-        return (homeLinks == 1) && (aboutLinks == 1) && (servicesLinks == 1);
-      });
+    it('About link should render', async() => {
+      TestUtilities.VerifyElementById(nativeElement, "aboutLink");
     });
 
-    it('drop-down links should render', async() => {
-      
-      TestUtilities.Verify(nativeElement, ".dropdown-item", (nodes) => {
-        var findProductLinks = Array.prototype.filter.call(nodes, (item) => {
-          return item.textContent.includes('Find Product');
-        }).length;
+    it('Find product link should render', async() => {
+      TestUtilities.VerifyElementById(nativeElement, "findProductLink");
+    });
 
-        var placeOrderLinks = Array.prototype.filter.call(nodes, (item) => {
-          return item.textContent.includes('Place Order');
-        }).length;
+    it('Place order link should render', async() => {
+      TestUtilities.VerifyElementById(nativeElement, "placeOrderLink");
+    });
 
-        var payLinks = Array.prototype.filter.call(nodes, (item) => {
-          return item.textContent.includes('Pay');
-        }).length;
-
-        return (findProductLinks == 1) && (placeOrderLinks == 1) && (payLinks == 1);
-      });
+    it('Pay link should render', async() => {
+      TestUtilities.VerifyElementById(nativeElement, "payLink");
     });
   });
 });
