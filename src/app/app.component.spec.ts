@@ -1,6 +1,12 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import {APP_BASE_HREF} from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { routes } from './routes';
+import { TestUtilities } from './test-shared/testUtilities';
 import { AppComponent } from './app.component';
-import { VersionComponent } from './version/version.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SearchComponent } from './search/search.component';
+import { FooterComponent } from './footer/footer.component';
 import { ProductModule } from './product/product.module';
 
 describe('AppComponent', () => {
@@ -12,10 +18,16 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        VersionComponent
+        NavbarComponent,
+        SearchComponent,
+        FooterComponent
       ],
       imports: [
+        RouterModule.forRoot(routes),
         ProductModule
+      ],
+      providers: [
+        {provide: APP_BASE_HREF, useValue: '/'}
       ]
     }).compileComponents();
   }));
@@ -29,11 +41,37 @@ describe('AppComponent', () => {
   it('should create', async(() => {
     expect(app).toBeTruthy();
   }));
+  
   it('should have the expected title', async(() => {
-    expect(app.title).toEqual('angular-auction');
+    expect(app.title).toEqual('Angular Auction');
   }));
-  it('should render title in a h1 tag', async(() => {
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to angular-auction!');
-  }));
+
+  describe('AppComponent render tests', () => {
+    let nativeElement: any;
+
+    beforeEach(() => {
+      nativeElement = fixture.debugElement.nativeElement;
+    });
+    
+    let verifyElementText = function(elementName: string, expectedText: string) {
+      TestUtilities.VerifyElementText(nativeElement, elementName, expectedText);
+    }
+
+    it('should render navbar component', async(() => {
+      TestUtilities.VerifyElementText(nativeElement, 'tq-navbar', 'navbar works!');
+    }));
+
+    it('should render search component', async(() => {
+      TestUtilities.VerifyElementText(nativeElement, 'tq-search', 'search works!'); 
+    }));
+  
+    it('should render router outlet component', async(() => {
+      TestUtilities.VerifyElementExists(nativeElement, 'router-outlet');
+    }));
+  
+    it('should render footer component', async(() => {
+      TestUtilities.VerifyElementText(nativeElement, 'tq-footer', 'footer works!');
+    }));
+  
+  });
 });

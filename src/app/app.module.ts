@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import { routes } from './routes';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,7 +13,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { RatingComponent } from './rating/rating.component';
-import { HttpClient } from 'selenium-webdriver/http';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +22,12 @@ import { HttpClient } from 'selenium-webdriver/http';
     CarouselComponent,
     NavbarComponent,
     FooterComponent,
-    RatingComponent
+    RatingComponent,
+    SearchComponent
 ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(routes),
     FormsModule,
     HttpClientModule,
     ProductModule
