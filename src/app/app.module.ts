@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ProductModule } from './product/product.module';
 
@@ -9,6 +11,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { RatingComponent } from './rating/rating.component';
+import { HttpClient } from 'selenium-webdriver/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,8 @@ import { RatingComponent } from './rating/rating.component';
 ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     ProductModule
   ],
   providers: [],
