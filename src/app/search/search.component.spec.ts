@@ -2,7 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { TestUtilities } from '../test-shared/testUtilities';
+import { Expect } from '../test-shared/testUtilities';
 
 import { SearchComponent } from './search.component';
 
@@ -35,23 +35,23 @@ describe('SearchComponent', () => {
     });    
 
     it('Search form should render', async() => {
-      TestUtilities.VerifyElementById(nativeElement, "searchForm");
+      Expect.ElementExists(nativeElement, "searchForm");
     });
 
     it('Product title text box should render', async() => {
-      TestUtilities.VerifyElementById(nativeElement, "productTitle");
+      Expect.ElementExists(nativeElement, "productTitle");
     });
 
     it('Product price text box should render', async() => {
-      TestUtilities.VerifyElementById(nativeElement, "productPrice");
+      Expect.ElementExists(nativeElement, "productPrice");
     });
 
     it('Product category drop-down should render', async() => {
-      TestUtilities.VerifyElementById(nativeElement, "productCategory");
+      Expect.ElementExists(nativeElement, "productCategory");
     });
 
     it('Search button should render', async() => {
-      TestUtilities.VerifyElementById(nativeElement, "btnSearch");
+      Expect.ElementExists(nativeElement, "btnSearch");
     });
   });
 });

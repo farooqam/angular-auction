@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
-import { TestUtilities } from '../test-shared/testUtilities';
+import { Expect } from '../test-shared/testUtilities';
 
 import { NavbarComponent } from './navbar.component';
 
@@ -37,39 +37,39 @@ describe('NavbarComponent', () => {
     });
 
     it('navigation toggle should render', async() => {
-      TestUtilities.VerifyElementById(nativeElement, "btnToggleNavigation");
+      Expect.ElementExists(nativeElement, "btnToggleNavigation");
     });
 
     it('collapsable navbar should render', async() => {
-      TestUtilities.VerifyElementById(nativeElement, "navbarSupportedContent");
+      Expect.ElementExists(nativeElement, "navbarSupportedContent");
     });
 
     it('navbar dropdown should render', async() => {
-      TestUtilities.VerifyElementById(nativeElement, "navbarDropdown");
+      Expect.ElementExists(nativeElement, "navbarDropdown");
     });
 
     it('navbar should render', async() => {
-      TestUtilities.VerifyElementById(nativeElement, "navbar");
+      Expect.ElementExists(nativeElement, "navbar");
     });
 
     it('Home link should render', async() => {
-      TestUtilities.VerifyElementById(nativeElement, "homeLink");
+      Expect.ElementExists(nativeElement, "homeLink");
     });
 
     it('About link should render', async() => {
-      TestUtilities.VerifyElementById(nativeElement, "aboutLink");
+      Expect.ElementExists(nativeElement, "aboutLink");
     });
 
     it('Find product link should render', async() => {
-      TestUtilities.VerifyElementById(nativeElement, "findProductLink");
+      Expect.ElementExists(nativeElement, "findProductLink");
     });
 
     it('Place order link should render', async() => {
-      TestUtilities.VerifyElementById(nativeElement, "placeOrderLink");
+      Expect.ElementExists(nativeElement, "placeOrderLink");
     });
 
     it('Pay link should render', async() => {
-      TestUtilities.VerifyElementById(nativeElement, "payLink");
+      Expect.ElementExists(nativeElement, "payLink");
     });
   });
 });

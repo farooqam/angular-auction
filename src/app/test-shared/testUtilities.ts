@@ -1,8 +1,8 @@
 import {} from 'jasmine';
 
-export class TestUtilities {
+export class Expect {
     
-    public static Verify(
+    public static IsTrue(
         nativeElement: any, 
         selector: string, 
         predicate : (selectorResult: any) => boolean) : void
@@ -11,13 +11,13 @@ export class TestUtilities {
         expect(predicate(result)).toBeTruthy();
     }
 
-    public static VerifyElementById(nativeElement: any, id: string)
+    public static ElementExists(nativeElement: any, elementId: string)
     {
-        this.Verify(nativeElement, `#${id}`, (nodes) => nodes.length == 1);
+        Expect.IsTrue(nativeElement, `#${elementId}`, (nodes) => nodes.length == 1);
     }
 
-    public static VerifyDirective(nativeElement: any, name: string)
+    public static DirectiveExists(nativeElement: any, name: string)
     {
-        this.Verify(nativeElement, name, (nodes) => nodes.length == 1);
+        Expect.IsTrue(nativeElement, name, (nodes) => nodes.length == 1);
     }
 }

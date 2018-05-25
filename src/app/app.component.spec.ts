@@ -2,7 +2,7 @@ import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import {APP_BASE_HREF} from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
-import { TestUtilities } from './test-shared/testUtilities';
+import { Expect } from './test-shared/testUtilities';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchComponent } from './search/search.component';
@@ -54,19 +54,19 @@ describe('AppComponent', () => {
     });
 
     it('should render navbar component', async(() => {
-      TestUtilities.VerifyDirective(nativeElement, 'tq-navbar');
+      Expect.DirectiveExists(nativeElement, 'tq-navbar');
     }));
 
     it('should render search component', async(() => {
-      TestUtilities.VerifyDirective(nativeElement, 'tq-search');
+      Expect.DirectiveExists(nativeElement, 'tq-search');
     }));
   
     it('should render router outlet component', async(() => {
-      TestUtilities.VerifyDirective(nativeElement, 'router-outlet');
+      Expect.DirectiveExists(nativeElement, 'router-outlet');
     }));
   
     it('should render footer component', async(() => {
-      TestUtilities.VerifyDirective(nativeElement, 'tq-footer');
+      Expect.DirectiveExists(nativeElement, 'tq-footer');
     }));
   
   });
