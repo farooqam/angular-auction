@@ -52,25 +52,29 @@ describe('AppComponent', () => {
     beforeEach(() => {
       nativeElement = fixture.debugElement.nativeElement;
     });
-    
-    let verifyElementText = function(elementName: string, expectedText: string) {
-      TestUtilities.VerifyElementText(nativeElement, elementName, expectedText);
-    }
 
     it('should render navbar component', async(() => {
-      TestUtilities.VerifyDOM(nativeElement, '.navbar');
+      TestUtilities.Verify(nativeElement, '.navbar', (nodes) => {
+        return nodes.length == 1;
+      });
     }));
 
     it('should render search component', async(() => {
-      TestUtilities.VerifyElementText(nativeElement, 'tq-search', 'search works!'); 
+      TestUtilities.Verify(nativeElement, 'tq-search', (nodes) => {
+        return nodes.length == 1 && nodes[0].textContent.includes('search works!');
+      }); 
     }));
   
     it('should render router outlet component', async(() => {
-      TestUtilities.VerifyDOM(nativeElement, 'router-outlet');
+      TestUtilities.Verify(nativeElement, 'router-outlet', (nodes) => {
+        return nodes.length == 1;
+      });
     }));
   
     it('should render footer component', async(() => {
-      TestUtilities.VerifyElementText(nativeElement, 'tq-footer', 'footer works!');
+      TestUtilities.Verify(nativeElement, 'tq-footer', (nodes) => {
+        return nodes.length == 1 && nodes[0].textContent.includes('footer works!');
+      }); 
     }));
   
   });
