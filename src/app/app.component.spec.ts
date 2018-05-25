@@ -61,7 +61,7 @@ describe('AppComponent', () => {
 
     it('should render search component', async(() => {
       TestUtilities.Verify(nativeElement, 'tq-search', (nodes) => {
-        return nodes.length == 1 && nodes[0].textContent.includes('search works!');
+        return nodes.length == 1;
       }); 
     }));
   

@@ -1,3 +1,34 @@
-<p>
-  search works!
-</p>
+<form id="searchForm" name="searchForm">
+  
+  <div class="form-group">
+    <label for="productTitle">Product title:</label>
+    <input 
+      type="text" 
+      id="productTitle" 
+      placeholder="Product title" 
+      class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="productPrice">Product price:</label>
+    <input 
+      type="number"
+      min="0" 
+      id="productPrice" 
+      placeholder="Product price" 
+      class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="productCategory">Product category:</label>
+    <select 
+      id="productCategory"
+      class="form-control"></select>
+  </div>
+  <div class="form-group">
+    <button 
+      id="btnSearch"
+      type="submit"
+      class="btn btn-primary btn-block">Search</button>
+  </div>
+</form>

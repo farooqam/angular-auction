@@ -36,6 +36,18 @@ describe('NavbarComponent', () => {
       nativeElement = fixture.debugElement.nativeElement;
     });
 
+    it('navigation toggle should render', async() => {
+      TestUtilities.VerifyElementById(nativeElement, "btnToggleNavigation");
+    });
+
+    it('collapsable navbar should render', async() => {
+      TestUtilities.VerifyElementById(nativeElement, "navbarSupportedContent");
+    });
+
+    it('navbar dropdown should render', async() => {
+      TestUtilities.VerifyElementById(nativeElement, "navbarDropdown");
+    });
+
     it('navbar should render', async() => {
       TestUtilities.Verify(nativeElement, ".navbar", (result) => result != null);
     });

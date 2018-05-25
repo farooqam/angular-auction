@@ -10,4 +10,9 @@ export class TestUtilities {
         var result = nativeElement.querySelectorAll(selector);
         expect(predicate(result)).toBeTruthy();
     }
+
+    public static VerifyElementById(nativeElement: any, id: string)
+    {
+        this.Verify(nativeElement, `#${id}`, (nodes) => nodes.length == 1);
+    }
 }
