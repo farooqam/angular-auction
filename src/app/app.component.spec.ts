@@ -43,7 +43,7 @@ describe('AppComponent', () => {
   }));
   
   it('should have the expected title', async(() => {
-    expect(app.title).toEqual('Angular Auction');
+    expect(app.title).toEqual('TQ Auction');
   }));
 
   describe('AppComponent render tests', () => {
@@ -58,7 +58,7 @@ describe('AppComponent', () => {
     }
 
     it('should render navbar component', async(() => {
-      TestUtilities.VerifyElementText(nativeElement, 'tq-navbar', 'navbar works!');
+      TestUtilities.VerifyDOM(nativeElement, '.navbar');
     }));
 
     it('should render search component', async(() => {
@@ -66,7 +66,7 @@ describe('AppComponent', () => {
     }));
   
     it('should render router outlet component', async(() => {
-      TestUtilities.VerifyElementExists(nativeElement, 'router-outlet');
+      TestUtilities.VerifyDOM(nativeElement, 'router-outlet');
     }));
   
     it('should render footer component', async(() => {
