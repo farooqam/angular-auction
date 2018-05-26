@@ -14,6 +14,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RatingComponent } from './rating/rating.component';
 import { SearchComponent } from './search/search.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CarouselComponent } from './carousel/carousel.component';
     FooterComponent,
     RatingComponent,
     SearchComponent,
-    CarouselComponent
+    CarouselComponent,
+    WelcomeComponent
 ],
   imports: [
     BrowserModule,
