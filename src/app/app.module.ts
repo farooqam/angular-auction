@@ -4,6 +4,7 @@ import { routes } from './routes';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { APP_BASE_HREF } from '@angular/common';
 
 import { ProductModule } from './product/product.module';
 
@@ -34,7 +35,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
     HttpClientModule,
     ProductModule
   ],
-  providers: [],
+  providers: [
+    {provide: APP_BASE_HREF, useValue: '/'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
