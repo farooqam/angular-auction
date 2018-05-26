@@ -30,16 +30,4 @@ describe('ProductListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  describe('ProductListComponent render tests', () => {
-    let nativeElement: any;
-
-    beforeEach(() => {
-      nativeElement = fixture.debugElement.nativeElement;
-    });
-
-    it('carousel component should render', async() => {
-      Expect.DirectiveExists(nativeElement, 'tq-carousel');
-    });
-  });
 });

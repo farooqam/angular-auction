@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SearchComponent } from './search/search.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductModule } from './product/product.module';
+import { CarouselComponent } from './carousel/carousel.component';
 
 describe('AppComponent', () => {
 
@@ -20,7 +21,8 @@ describe('AppComponent', () => {
         AppComponent,
         NavbarComponent,
         SearchComponent,
-        FooterComponent
+        FooterComponent,
+        CarouselComponent
       ],
       imports: [
         RouterModule.forRoot(routes),
@@ -60,6 +62,10 @@ describe('AppComponent', () => {
     it('should render search component', async(() => {
       Expect.DirectiveExists(nativeElement, 'tq-search');
     }));
+
+    it('should render carousel component', async() => {
+      Expect.DirectiveExists(nativeElement, 'tq-carousel');
+    });
   
     it('should render router outlet component', async(() => {
       Expect.DirectiveExists(nativeElement, 'router-outlet');
@@ -68,6 +74,5 @@ describe('AppComponent', () => {
     it('should render footer component', async(() => {
       Expect.DirectiveExists(nativeElement, 'tq-footer');
     }));
-  
   });
 });

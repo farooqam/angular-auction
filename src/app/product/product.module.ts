@@ -4,7 +4,6 @@ import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductService } from '../shared/product-service/product.service';
 import { ProductListComponent } from './product-list/product-list.component';
-import { CarouselComponent } from '../carousel/carousel.component';
 
 @NgModule({
   imports: [
@@ -14,7 +13,6 @@ import { CarouselComponent } from '../carousel/carousel.component';
     ProductDetailComponent,
     ProductItemComponent,
     ProductListComponent,
-    CarouselComponent
 ],
   providers: [
     ProductService

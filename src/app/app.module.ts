@@ -13,6 +13,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { RatingComponent } from './rating/rating.component';
 import { SearchComponent } from './search/search.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SearchComponent } from './search/search.component';
     NavbarComponent,
     FooterComponent,
     RatingComponent,
-    SearchComponent
+    SearchComponent,
+    CarouselComponent
 ],
   imports: [
     BrowserModule,
