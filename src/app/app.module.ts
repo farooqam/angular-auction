@@ -9,7 +9,6 @@ import { ProductModule } from './product/product.module';
 
 import { AppComponent } from './app.component';
 import { VersionComponent } from './version/version.component';
-import { CarouselComponent } from './carousel/carousel.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { RatingComponent } from './rating/rating.component';
@@ -19,7 +18,6 @@ import { SearchComponent } from './search/search.component';
   declarations: [
     AppComponent,
     VersionComponent,
-    CarouselComponent,
     NavbarComponent,
     FooterComponent,
     RatingComponent,
