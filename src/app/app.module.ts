@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
 
+import { ErrorPagesModule } from './error-pages/error-pages.module';
 import { ProductModule } from './product/product.module';
 
 import { AppComponent } from './app.component';
@@ -33,6 +34,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     RouterModule.forRoot(routes),
     FormsModule,
     HttpClientModule,
+    ErrorPagesModule,
     ProductModule
   ],
   providers: [
