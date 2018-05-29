@@ -7,8 +7,7 @@ import { routes } from './error-pages.routes';
 
 @NgModule({
   imports: [
-    CommonModule,
-    RouterModule.forChild(routes)
+    CommonModule
   ],
   declarations: [
     PageNotFoundComponent

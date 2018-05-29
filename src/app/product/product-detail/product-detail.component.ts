@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'tq-product-detail',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDetailComponent implements OnInit {
 
-  constructor() { }
+  public productId: string;
+
+  constructor(private _route: ActivatedRoute) { 
+  }
 
   ngOnInit() {
+    this._route.paramMap.subscribe(pmap => this.productId = pmap.get('id'));
   }
 
 }

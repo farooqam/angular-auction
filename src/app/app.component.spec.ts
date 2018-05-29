@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductModule } from './product/product.module';
 import { CarouselComponent } from './carousel/carousel.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { ErrorPagesModule } from './error-pages/error-pages.module';
 
 describe('AppComponent', () => {
 
@@ -28,7 +29,8 @@ describe('AppComponent', () => {
       ],
       imports: [
         RouterModule.forRoot(routes),
-        ProductModule
+        ProductModule,
+        ErrorPagesModule
       ],
       providers: [
         {provide: APP_BASE_HREF, useValue: '/'}

@@ -12,5 +12,9 @@ export const routes: Route[] = [
     {
         path: 'welcome',
         component: WelcomeComponent
+    },
+    {
+        path: '**',
+        component: PageNotFoundComponent
     }
 ];
