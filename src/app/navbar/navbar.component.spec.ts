@@ -60,6 +60,15 @@ describe('NavbarComponent', () => {
       Expect.ElementExists(nativeElement, "aboutLink");
     });
 
+    it('Product list link should render', async() => {
+      Expect.ElementExists(nativeElement, "productListLink");
+
+      Expect.IsTrue(nativeElement, "#productListLink", (result) => {
+        console.log(result[0]);
+        return true;
+      });
+    });
+
     it('Find product link should render', async() => {
       Expect.ElementExists(nativeElement, "findProductLink");
     });
