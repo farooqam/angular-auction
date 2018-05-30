@@ -21,14 +21,15 @@ describe('ProductListComponent', () => {
   let activatedRoute: any;  
   let service: ProductServiceMock;
   let mockProducts: ProductSummary[];
+  let productId: string = "100";
 
   beforeEach(async(() => {
 
-    activatedRoute = new ActivatedRouteMock({id: 100});    
+    activatedRoute = new ActivatedRouteMock({id: productId});    
     
     mockProducts = [
       {
-        "id": "mockProduct1", 
+        "id": productId, 
         "name": "Mock Product 1", 
         "price": 100
       }
@@ -74,5 +75,18 @@ describe('ProductListComponent', () => {
     component.products.subscribe((products) => {
       expect(products[0]).toEqual(mockProducts[0]);
     });
+  });
+
+  describe('ProductListComponent render tests', () => {
+
+    let nativeElement: any;
+
+    beforeEach(() => {
+      nativeElement = fixture.debugElement.nativeElement;
+    });
+
+    it('should render product detail components', async(() => {
+      Expect.DirectiveExists(nativeElement, 'tq-product-detail', 1, 100);
+    }));
   });
 });

@@ -16,8 +16,15 @@ export class Expect {
         Expect.IsTrue(nativeElement, `#${elementId}`, (nodes) => nodes.length == 1);
     }
 
-    public static DirectiveExists(nativeElement: any, name: string)
+    public static DirectiveExists(
+        nativeElement: any, 
+        name: string, 
+        expectedCountMin: number = 1,
+        expectedCountMax: number = 1)
     {
-        Expect.IsTrue(nativeElement, name, (nodes) => nodes.length == 1);
+        Expect.IsTrue(
+            nativeElement, 
+            name, 
+            (nodes) => nodes.length >= expectedCountMin && nodes.length <= expectedCountMax);
     }
 }
