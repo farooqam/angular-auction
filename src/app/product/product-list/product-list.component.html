@@ -1,32 +1,5 @@
 <div class="row card-deck">
-    <div class="col-4">
-        <tq-product-detail></tq-product-detail>
-    </div>
-    <div class="col-4">
-        <tq-product-detail></tq-product-detail>
-    </div>
-    <div class="col-4">
-        <tq-product-detail></tq-product-detail>
-    </div>
-    <div class="col-4">
-        <tq-product-detail></tq-product-detail>
-    </div>
-    <div class="col-4">
-        <tq-product-detail></tq-product-detail>
-    </div>
-    <div class="col-4">
-        <tq-product-detail></tq-product-detail>
-    </div>
-    <div class="col-4">
-        <tq-product-detail></tq-product-detail>
-    </div>
-    <div class="col-4">
-        <tq-product-detail></tq-product-detail>
-    </div>
-    <div class="col-4">
-        <tq-product-detail></tq-product-detail>
-    </div>
-    <div class="col-4">
+    <div class="col-4" *ngFor="let product of products">
         <tq-product-detail></tq-product-detail>
     </div>
 </div>

@@ -7,6 +7,8 @@ import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductService } from '../shared/product-service/product.service';
 import { ProductListComponent } from './product-list/product-list.component';
+import { productServiceMock } from './product-service-mock';
+import { ProductSummary } from '../shared/product-service/product-summary';
 
 @NgModule({
   imports: [
@@ -19,7 +21,10 @@ import { ProductListComponent } from './product-list/product-list.component';
     ProductListComponent,
 ],
   providers: [
-    ProductService
+    {
+      provide: ProductService,
+      useValue: productServiceMock
+    }
   ],
   exports: [
     ProductItemComponent,
@@ -27,4 +32,5 @@ import { ProductListComponent } from './product-list/product-list.component';
     ProductDetailComponent
   ]
 })
-export class ProductModule { }
+export class ProductModule { 
+}

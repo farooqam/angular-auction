@@ -11,11 +11,13 @@ import { ProductSummary } from '../../shared/product-service/product-summary';
 })
 export class ProductListComponent implements OnInit {
 
-  public products: Observable<ProductSummary[]>;
+  public products: ProductSummary[];
 
   constructor(private _productService: ProductService) { }
 
   ngOnInit() {
-    this.products = this._productService.getProducts();
+    this._productService.getProducts().subscribe((products) => {
+      this.products = products;
+    });
   }
 }

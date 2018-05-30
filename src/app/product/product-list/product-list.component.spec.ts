@@ -72,9 +72,7 @@ describe('ProductListComponent', () => {
   });
 
   it('should get the products', () => {
-    component.products.subscribe((products) => {
-      expect(products[0]).toEqual(mockProducts[0]);
-    });
+    expect(component.products[0]).toEqual(mockProducts[0]);
   });
 
   describe('ProductListComponent render tests', () => {
