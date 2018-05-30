@@ -27,7 +27,7 @@ describe('Service: Product', () => {
       }
     ];
 
-    service.getProducts().subscribe(res => expect(res).toEqual(products));
+    service.getProductSummaries().subscribe(res => expect(res).toEqual(products));
 
     let request = httpMock.expectOne('api/products');
     request.flush(products);

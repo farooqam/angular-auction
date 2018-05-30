@@ -9,7 +9,7 @@ export class ProductServiceMock {
 
     }
 
-    public getProducts(): Observable<ProductSummary[]> {
+    public getProductSummaries(): Observable<ProductSummary[]> {
         return of(this.products);
     }
 }
