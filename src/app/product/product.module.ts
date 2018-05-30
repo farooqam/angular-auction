@@ -9,6 +9,7 @@ import { ProductService } from '../shared/product-service/product.service';
 import { ProductListComponent } from './product-list/product-list.component';
 import { productServiceMock } from './product-service-mock';
 import { ProductSummary } from '../shared/product-service/product-summary';
+import { ProductSummaryComponent } from './product-summary/product-summary.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { ProductSummary } from '../shared/product-service/product-summary';
   declarations: [
     ProductDetailComponent,
     ProductItemComponent,
-    ProductListComponent,
+    ProductListComponent,,
+    ProductSummaryComponent
 ],
   providers: [
     {
