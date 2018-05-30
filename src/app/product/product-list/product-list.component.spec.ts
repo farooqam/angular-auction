@@ -3,18 +3,40 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { Expect } from '../../test-shared/testUtilities';
-import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+
+import { ActivatedRouteMock } from '../../test-shared/activated-route-mock';
 
 import { ProductListComponent } from './product-list.component';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
 import { CarouselComponent } from '../../carousel/carousel.component';
 import { ProductService } from '../../shared/product-service/product.service';
+import { ProductServiceMock } from '../../test-shared/product-service-mock';
+import { ProductSummary } from '../../shared/product-service/product-summary';
 
 describe('ProductListComponent', () => {
   let component: ProductListComponent;
   let fixture: ComponentFixture<ProductListComponent>;
+  let activatedRoute: any;  
+  let service: ProductServiceMock;
+  let mockProducts: ProductSummary[];
 
   beforeEach(async(() => {
+
+    activatedRoute = new ActivatedRouteMock({id: 100});    
+    
+    mockProducts = [
+      {
+        "id": "mockProduct1", 
+        "name": "Mock Product 1", 
+        "price": 100
+      }
+    ];
+
+    service = new ProductServiceMock(mockProducts);
+    
+
     TestBed.configureTestingModule({
       declarations: [ 
         ProductListComponent,
@@ -22,8 +44,17 @@ describe('ProductListComponent', () => {
         CarouselComponent
       ],
       providers: [
-        ProductService,
-        HttpClient
+        {
+          provide: ProductService, 
+          useValue: service
+        },
+        {
+          provide: ActivatedRoute, 
+          useValue: activatedRoute
+        }
+      ],
+      imports: [
+        RouterTestingModule
       ]
     })
     .compileComponents();
@@ -37,5 +68,11 @@ describe('ProductListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should get the products', () => {
+    component.products.subscribe((products) => {
+      expect(products[0]).toEqual(mockProducts[0]);
+    });
   });
 });

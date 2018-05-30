@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
 import { ProductService } from '../../shared/product-service/product.service';
+import { ProductSummary } from '../../shared/product-service/product-summary';
 
 @Component({
   selector: 'tq-product-list',
@@ -8,9 +11,11 @@ import { ProductService } from '../../shared/product-service/product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor(_productService: ProductService) { }
+  public products: Observable<ProductSummary[]>;
+
+  constructor(private _productService: ProductService) { }
 
   ngOnInit() {
+    this.products = this._productService.getProducts();
   }
-
 }
