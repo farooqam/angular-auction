@@ -31,7 +31,8 @@ describe('ProductListComponent', () => {
       {
         "id": productId, 
         "name": "Mock Product 1", 
-        "price": 100
+        "price": 100,
+        'thumbnailUri': 'http://www.foo.img'
       }
     ];
 
@@ -82,9 +83,5 @@ describe('ProductListComponent', () => {
     beforeEach(() => {
       nativeElement = fixture.debugElement.nativeElement;
     });
-
-    it('should render product detail components', async(() => {
-      Expect.DirectiveExists(nativeElement, 'tq-product-detail', 1, 100);
-    }));
   });
 });

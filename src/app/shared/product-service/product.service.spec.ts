@@ -23,7 +23,7 @@ describe('Service: Product', () => {
   it('should get the products', async(() => {
     const products: ProductSummary[] = [
       {
-        "id": "product1", "name": "product 1", "price": 100
+        "id": "product1", "name": "product 1", "price": 100, 'thumbnailUri': 'http://www.foo.img'
       }
     ];
 
