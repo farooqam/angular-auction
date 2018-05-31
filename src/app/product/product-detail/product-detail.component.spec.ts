@@ -6,16 +6,30 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { ActivatedRouteMock } from '../../test-shared/activated-route-mock';
+import { ProductServiceMock } from '../../test-shared/product-service-mock';
 import { Expect } from '../../test-shared/testUtilities';
 
 import { ProductDetailComponent } from './product-detail.component';
+import { ProductSummary } from '../../shared/product-service/product-summary';
+import { ProductService } from '../../shared/product-service/product.service';
 
 describe('ProductDetailComponent', () => {
   let component: ProductDetailComponent;
   let fixture: ComponentFixture<ProductDetailComponent>;
   let activatedRoute: any;
-  const productId : string = '100abc';
+  let service: ProductServiceMock;
+  const productId : string = 'product1';
+  
+  let mockProductSummmaries: ProductSummary[] = [ 
+  {
+    'id': productId,
+    'name': 'Mock Product',
+    'price': 19.99,
+    'thumbnailUri': 'http://foo.img'
+  }];
 
+  service = new ProductServiceMock(mockProductSummmaries);
+  
   beforeEach(async(() => {
     
     activatedRoute = new ActivatedRouteMock({id: productId});
@@ -28,6 +42,10 @@ describe('ProductDetailComponent', () => {
         {
           provide: ActivatedRoute, 
           useValue: activatedRoute
+        },
+        {
+          provide: ProductService, 
+          useValue: service
         }
       ],
       imports: [
@@ -47,18 +65,9 @@ describe('ProductDetailComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('ProductDetailComponent render tests', () => {
-    let nativeElement: any;
-
-    beforeEach(() => {
-      nativeElement = fixture.debugElement.nativeElement;      
-    });
-
-    it('should display the product id', async(() => {
-      Expect.IsTrue(nativeElement, '.card-text', (result) => {
-        return result[0].innerText.includes(productId);
-      });
-    }));
-
+  it('should get the product', () => {
+    expect(component.product.id).toEqual(mockProductSummmaries[0].id);
+    expect(component.product.name).toEqual(mockProductSummmaries[0].name);
+    expect(component.product.price).toEqual(mockProductSummmaries[0].price);
   });
 });
